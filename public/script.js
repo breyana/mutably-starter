@@ -6,8 +6,10 @@ $(document).ready(function(){
     .then(json => {
       const books = json.books
       books.forEach(book => {
-        const li = $(`<li>`).text(book.title)
-        li.appendTo('.list-group')
+        const button = $('<button>').text('Edit').attr('class', 'edit')
+        const title = $('<span>').text(book.title).attr('class', 'title')
+        const bookLi = $('<li>').append(button).append(title).attr('class', 'book')
+        bookLi.appendTo('.list-group')
       })
     })
 });
